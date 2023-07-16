@@ -21,6 +21,16 @@ gem "puma", "~> 5.0"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
+# Use Devise for authentication and Devise JWT to authenticate using JWT methods
+gem 'devise'
+gem 'devise-jwt'
+
+# Use Cancancan for authorization
+gem 'cancancan'
+
+# Imagekit for image uploads
+gem 'imagekitio'
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
@@ -32,17 +42,31 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+gem 'rubocop', '>= 1.0', '< 2.0'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+gem "rack-cors"
+
+# Use Active Model has_secure_password
+gem 'rswag'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'capybara'
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
+
+  # 'dotenv-rails' is for storing secret key in ENV file
+  gem 'dotenv-rails'
+
+  # Database Cleaner for keeping the test database clean
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '>= 5.0', '< 6.0'
+  gem 'webdrivers', '>= 5.0', '< 6.0'
 end
 
 group :development do
-  gem 'listen', '~> 3.3'
+ 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
    gem "spring"
 end
